@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TAXEY</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h3>Trade type</h3>
+    <form>
+        <input type="radio" id="interstate" name="state">
+        <label for="interstate">interstate</label>
+      
+        <input type="radio" id="intrastate" name="state">
+        <label for="intrastate">intrastate</label>
+      
+      </form>
+      <br><br>
+            <label for="gstrate">GST rate (in %)</label>
+      <input type="number" id="gstrate"><br><br>
+
+      <form>
+        <input type="radio" id="cpspOPT" name="cpspprof" onclick="toggleElementOn('cpspDiv'); toggleElementOff('profitDiv')">
+        <label for="cpspOPT">Calculate on cost price and selling price</label>
+      
+        <input type="radio" id="profOPT" name="cpspprof" onclick="toggleElementOn('profitDiv') ; toggleElementOff('cpspDiv')">
+        <label for="profOPT">Calculate on profit</label>
+      
+      </form><br><br>
+      <label for="cp">Cost Price</label>
+      <input type="number" id="cp"><br><br>
+      <div id="cpspDiv" class="hidden">
+      
+
+      <label for="sp">Selling Price</label>
+      <input type="number" id="sp">
+
+      </div>
+
+      <div id="profitDiv" class="hidden">
+        <label for="prof">Profit</label>
+        <input type="number" id="prof">
+      </div><br><br>
+
+      <button onclick="calculate()">Calculate!!</button><br><br>
+
+      <label id="gstLABEL"></label><br>
+      <label id="amtLABEL"></label>
+      
+
+      <script src="main.js"></script>
+</body>
+</html>

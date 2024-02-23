@@ -8,26 +8,35 @@
 </head>
 <body>
     <h3>Trade type</h3>
-    <form>
-        <input type="radio" id="interstate" name="state">
-        <label for="interstate">interstate</label>
+      <div class="container">
+        <div class="tabs">
+          <input type="radio" id="interstate" name="state">
+          <label for="interstate" class="radioLabel">interstate</label>
       
-        <input type="radio" id="intrastate" name="state">
-        <label for="intrastate">intrastate</label>
+          <input type="radio" id="intrastate" name="state">
+          <label for="intrastate" class="radioLabel">intrastate</label>
+          <span class="glider"></span>
+        </div>
+      </div>
       
-      </form>
+      
       <br><br>
-            <label for="gstrate">GST rate (in %)</label>
+      <label for="gstrate">GST rate (in %)</label>
       <input type="number" id="gstrate"><br><br>
 
-      <form>
-        <input type="radio" id="cpspOPT" name="cpspprof" onclick="toggleElementOn('cpspDiv'); toggleElementOff('profitDiv')">
-        <label for="cpspOPT">Calculate on cost price and selling price</label>
+      <div class="container">
+        <h3>Calculate on cost price and</h3>
+        <div class="tabs">
+          <input type="radio" id="cpspOPT" name="cpspprof" onclick="toggleElementOn('cpspDiv'); toggleElementOff('profitDiv')">
+          <label for="cpspOPT" class="radioLabel" >Selling price</label>
       
-        <input type="radio" id="profOPT" name="cpspprof" onclick="toggleElementOn('profitDiv') ; toggleElementOff('cpspDiv')">
-        <label for="profOPT">Calculate on profit</label>
+          <input type="radio" id="profOPT" name="cpspprof" onclick="toggleElementOn('profitDiv') ; toggleElementOff('cpspDiv')">
+          <label for="profOPT" class="radioLabel" >Profit</label>
+          <span class="glider"></span>
       
-      </form><br><br>
+        </div>
+      </div>
+    <br><br>
       <label for="cp">Cost Price</label>
       <input type="number" id="cp"><br><br>
       <div id="cpspDiv" class="hidden">
@@ -43,7 +52,7 @@
         <input type="number" id="prof">
       </div><br><br>
 
-      <button onclick="calculate()">Calculate!!</button><br><br>
+      <button onclick="calculate()" class="calc">Calculate!!</button><br><br>
 
       <label id="gstLABEL"></label><br>
       <label id="amtLABEL"></label>

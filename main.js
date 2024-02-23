@@ -4,7 +4,7 @@ function toggleElementOff(elementId) {
 }
 function toggleElementOn(elementId) {
     var element = document.getElementById(elementId);
-    element.style.display = 'block';
+    element.style.display = 'flex';
 }
 
 function calculate(){
@@ -31,9 +31,9 @@ function calculate(){
                 window.alert("Please enter selling price");
             }
             else{
-                var sp = document.getElementById('sp').value;
-                
-                gst_amt = (gst*(sp-cp))/100;
+                var sp = parseFloat(document.getElementById('sp').value);
+                var inpgst = (gst*cp)/100;
+                gst_amt = ((gst*(sp-cp))/100)-inpgst;
             }
         }
         else{
@@ -44,17 +44,17 @@ function calculate(){
                 window.alert("Please enter profit");
             }
             else{
-                var prof = document.getElementById('prof').value;
+                var prof = parseFloat(document.getElementById('prof').value);
                 gst_amt = (gst*prof)/100;
             }
         }
 
-        if(document.getElementById('intrastate').checked == true){
+        if(document.getElementById('interstate').checked == true){
             document.getElementById('gstLABEL').innerHTML = "IGST Amount : " + gst_amt;
         }
         else{
             document.getElementById('gstLABEL').innerHTML = `CGST Amount : ${gst_amt/2} <br> SGST Amount : ${gst_amt/2}`
         }
-        document.getElementById('amtLABEL').innerHTML = `Amount : ${cp+gst_amt}`
+        document.getElementById('amtLABEL').innerHTML = `Amount : ${(((document.getElementById('cpspOPT').checked==true))?sp:cp+prof)+gst_amt}`
     }
 }
